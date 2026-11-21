@@ -1,0 +1,560 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Meisya Ramadhani — Portfolio</title>
+<!-- Google Fonts: Archivo (Wide Brutalist), Caveat (Handwritten), Space Mono (Metadata) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&amp;family=Caveat:wght@500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Design Tokens & Graph-Paper Background -->
+<style data-purpose="design-tokens-and-paper-bg">
+    :root {
+      --accent: #E8392B;
+      --select-blue: #2B7FFF;
+      --paper: #F2F1ED;
+      --ink: #111111;
+      --ink-soft: rgba(17, 17, 17, 0.68);
+      --grid: rgba(17, 17, 17, 0.065);
+    }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: 'Archivo', sans-serif;
+      background-image:
+        linear-gradient(to right, var(--grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+      background-size: 26px 26px;
+      overflow-x: hidden;
+    }
+
+    /* Subtle paper grain overlay */
+    .paper-grain {
+      background-image: radial-gradient(rgba(17, 17, 17, 0.04) 1px, transparent 0);
+      background-size: 14px 14px;
+    }
+  </style>
+<!-- Typography & Brutalist Headings -->
+<style data-purpose="typography-and-brutalist-headings">
+    .font-archivo-wide {
+      font-family: 'Archivo', sans-serif;
+      font-stretch: 125%;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .font-caveat {
+      font-family: 'Caveat', cursive;
+    }
+
+    .font-space-mono {
+      font-family: 'Space Mono', monospace;
+    }
+
+    .text-outline-white {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--paper);
+    }
+  </style>
+<!-- Torn Paper Edges & Infinite Marquee -->
+<style data-purpose="torn-paper-and-marquee">
+    .torn-edge-both {
+      clip-path: polygon(
+        0% 10px, 3% 2px, 6% 12px, 9% 4px, 13% 11px, 16% 3px, 20% 13px, 24% 5px,
+        28% 12px, 32% 2px, 36% 11px, 40% 4px, 44% 13px, 48% 3px, 52% 11px, 56% 5px,
+        60% 12px, 64% 3px, 68% 11px, 72% 4px, 76% 13px, 80% 2px, 84% 12px, 88% 4px,
+        92% 11px, 96% 3px, 100% 10px,
+        100% calc(100% - 10px), 97% calc(100% - 3px), 94% calc(100% - 12px),
+        90% calc(100% - 4px), 86% calc(100% - 11px), 82% calc(100% - 3px),
+        78% calc(100% - 13px), 74% calc(100% - 5px), 70% calc(100% - 12px),
+        66% calc(100% - 2px), 62% calc(100% - 11px), 58% calc(100% - 4px),
+        54% calc(100% - 13px), 50% calc(100% - 3px), 46% calc(100% - 11px),
+        42% calc(100% - 5px), 38% calc(100% - 12px), 34% calc(100% - 3px),
+        30% calc(100% - 11px), 26% calc(100% - 4px), 22% calc(100% - 13px),
+        18% calc(100% - 2px), 14% calc(100% - 12px), 10% calc(100% - 4px),
+        6% calc(100% - 11px), 2% calc(100% - 3px), 0% calc(100% - 10px)
+      );
+    }
+
+    .torn-edge-top {
+      clip-path: polygon(
+        0% 12px, 3% 3px, 7% 13px, 11% 4px, 15% 11px, 19% 2px, 23% 12px, 27% 5px,
+        31% 13px, 35% 3px, 39% 11px, 43% 4px, 47% 12px, 51% 2px, 55% 11px, 59% 5px,
+        63% 13px, 67% 3px, 71% 12px, 75% 4px, 79% 11px, 83% 2px, 87% 13px, 91% 4px,
+        95% 11px, 98% 3px, 100% 10px,
+        100% 100%, 0% 100%
+      );
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 24s linear infinite;
+    }
+  </style>
+<!-- Scrapbook Cards, Stickers & Selection Box -->
+<style data-purpose="scrapbook-cards-and-stickers">
+    .sticker-outline-white {
+      filter: drop-shadow(0 0 0 #ffffff) drop-shadow(3px 3px 0 rgba(17, 17, 17, 0.25));
+      border: 4px solid #ffffff;
+    }
+
+    .sticker-outline-red {
+      border: 5px solid var(--accent);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .masking-tape {
+      background: rgba(242, 241, 237, 0.78);
+      border-left: 1px dashed rgba(17, 17, 17, 0.15);
+      border-right: 1px dashed rgba(17, 17, 17, 0.15);
+      box-shadow: 0 1px 3px rgba(17, 17, 17, 0.12);
+    }
+
+    .brutalist-card-shadow {
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .brutalist-btn-shadow {
+      box-shadow: 4px 4px 0 var(--accent);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .brutalist-btn-shadow:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--accent);
+    }
+  </style>
+</head>
+<body class="paper-grain antialiased selection:bg-[#E8392B] selection:text-[#F2F1ED]">
+<!-- BEGIN: TopNavigation -->
+<nav class="sticky top-0 z-50 border-b border-[#111111]/15 bg-[#F2F1ED]/90 backdrop-blur-sm" data-purpose="minimal-top-navigation">
+<div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+<a class="font-archivo-wide text-sm tracking-tight text-[#111111]" href="#">
+        MR<span class="text-[#E8392B]">.</span>26
+      </a>
+<ul class="font-space-mono flex flex-wrap items-center gap-4 text-[11px] font-bold uppercase tracking-wider sm:gap-6 sm:text-xs">
+<li><a class="hover:text-[#E8392B] transition-colors" href="#about">About</a></li>
+<li><a class="hover:text-[#E8392B] transition-colors" href="#projects">Projects</a></li>
+<li><a class="hover:text-[#E8392B] transition-colors" href="#competencies">Skills</a></li>
+<li><a class="hover:text-[#E8392B] transition-colors" href="#achievements">Achievements</a></li>
+<li>
+<a class="border border-[#111111] bg-[#111111] px-2.5 py-1 text-[#F2F1ED] hover:bg-[#E8392B] hover:border-[#E8392B] transition-colors" href="#contact">
+            Contact
+          </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- END: TopNavigation -->
+<main>
+<!-- BEGIN: HeroPosterHeader -->
+<header class="mx-auto max-w-6xl px-4 pt-8 pb-10 sm:px-6 sm:pt-12" data-purpose="hero-poster-header">
+<!-- Meta Topline -->
+<div class="font-space-mono mb-4 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-[#111111] sm:text-xs">
+<span>ROBOTICS / DIGITAL MEDIA / LEADERSHIP</span>
+<span>2026</span>
+</div>
+<!-- Giant Display Title Split with Centered Sticker Portrait -->
+<div class="relative flex flex-col items-center justify-center">
+<div class="flex w-full items-center justify-center gap-2 sm:gap-4 md:gap-6">
+<h1 class="font-archivo-wide text-[13vw] leading-[0.85] text-[#111111] sm:text-[10vw] md:text-[8.5vw] lg:text-[112px]">
+            PORTFO
+          </h1>
+<!-- Centered Halftone/Illustrated Sticker Portrait -->
+<div class="relative z-10 shrink-0 -rotate-3">
+<img alt="Meisya Ramadhani illustrated sticker portrait" class="sticker-outline-white h-24 w-20 object-cover grayscale contrast-125 sm:h-36 sm:w-28 md:h-44 md:w-36" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABFykRIAFYL669Tfgtm0NJWcdrHKIacrTIF98HvmqdjLXxbS-6qHk4PNuvbarp1QO-1NYlohCfL1UpKhGa91DHq5X6okV6jSLz7orjuVjTI6dLAQgt161LlsNfyufwbbFLKsgkNgwRkLxayTOb_UiiGChfeNwSEbXkNaQhHD4oz_xryRZHaeAFGDnuv2aDNOPcA0ecnXvSGbInNgGnEiE0H7-FsEonCHqBdxiyEmUiOgbdq1sNye67">
+</div>
+<h1 class="font-archivo-wide text-[13vw] leading-[0.85] text-[#111111] sm:text-[10vw] md:text-[8.5vw] lg:text-[112px]">
+            LIO
+          </h1>
+</div>
+<!-- Handwritten Signature & Curved SVG Arrow -->
+<div class="mt-2 flex w-full max-w-xl items-start justify-end pr-4 sm:pr-12">
+<div class="flex items-center gap-2">
+<!-- Hand-drawn curved arrow pointing up to the sticker -->
+<svg aria-hidden="true" class="-mt-4 text-[#111111]" fill="none" height="42" viewBox="0 0 48 42" width="48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42 36C25 34 14 23 11 6M11 6L5 13M11 6L19 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="font-caveat -rotate-4 text-[26px] font-bold leading-none text-[#111111]">
+              Meisya Ramadhani
+            </span>
+</div>
+</div>
+</div>
+<!-- Starburst Geometric Icons Row -->
+<div aria-hidden="true" class="mt-8 flex items-center justify-center gap-6 text-[#111111]">
+<!-- 8-point asterisk -->
+<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+<path d="M12 1L13.8 8.2L20.5 4.5L15.8 10.2L23 12L15.8 13.8L20.5 19.5L13.8 15.8L12 23L10.2 15.8L3.5 19.5L8.2 13.8L1 12L8.2 10.2L3.5 4.5L10.2 8.2L12 1Z"></path>
+</svg>
+<!-- 4-point sparkle -->
+<svg fill="currentColor" height="22" viewBox="0 0 24 24" width="22">
+<path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"></path>
+</svg>
+<!-- 4-leaf clover/cross -->
+<svg fill="currentColor" height="22" viewBox="0 0 24 24" width="22">
+<path d="M12 2C14.2 2 16 3.8 16 6C16 7.5 15.1 8.8 13.8 9.5C14.5 8.2 15.8 7.3 17.3 7.3C19.5 7.3 21.3 9.1 21.3 11.3C21.3 13.5 19.5 15.3 17.3 15.3C15.8 15.3 14.5 14.4 13.8 13.1C15.1 13.8 16 15.1 16 16.6C16 18.8 14.2 20.6 12 20.6C9.8 20.6 8 18.8 8 16.6C8 15.1 8.9 13.8 10.2 13.1C9.5 14.4 8.2 15.3 6.7 15.3C4.5 15.3 2.7 13.5 2.7 11.3C2.7 9.1 4.5 7.3 6.7 7.3C8.2 7.3 9.5 8.2 10.2 9.5C8.9 8.8 8 7.5 8 6C8 3.8 9.8 2 12 2Z"></path>
+</svg>
+</div>
+</header>
+<!-- END: HeroPosterHeader -->
+<!-- BEGIN: AboutSection -->
+<section class="mx-auto max-w-6xl px-4 py-10 sm:px-6" data-purpose="about-bio-skills-experience" id="about">
+<div class="grid grid-cols-1 gap-10 lg:grid-cols-[280px_1.25fr_1fr] lg:gap-8">
+<!-- Column 1: Designer Selection Frame -->
+<div class="flex flex-col items-center lg:items-start">
+<!-- Figma/Photoshop-style active selection bounding box -->
+<div class="relative inline-block border-[1.5px] border-[#2B7FFF] p-1">
+<!-- Floating dimension badge -->
+<span class="font-space-mono absolute -top-6 left-0 bg-[#2B7FFF] px-1.5 py-0.5 text-[10px] font-bold text-white">
+              320 × 490 px
+            </span>
+<!-- 8 tiny 7x7px white square resize handles with #2B7FFF border -->
+<span class="absolute -top-1 -left-1 h-[7px] w-[7px] border border-[#2B7FFF] bg-white"></span>
+<span class="absolute -top-1 left-1/2 -translate-x-1/2 h-[7px] w-[7px] border border-[#2B7FFF] bg-white"></span>
+<span class="absolute -top-1 -right-1 h-[7px] w-[7px] border border-[#2B7FFF] bg-white"></span>
+<span class="absolute top-1/2 -left-1 -translate-y-1/2 h-[7px] w-[7px] border border-[#2B7FFF] bg-white"></span>
+<span class="absolute top-1/2 -right-1 -translate-y-1/2 h-[7px] w-[7px] border border-[#2B7FFF] bg-white"></span>
+<span class="absolute -bottom-1 -left-1 h-[7px] w-[7px] border border-[#2B7FFF] bg-white"></span>
+<span class="absolute -bottom-1 left-1/2 -translate-x-1/2 h-[7px] w-[7px] border border-[#2B7FFF] bg-white"></span>
+<span class="absolute -bottom-1 -right-1 h-[7px] w-[7px] border border-[#2B7FFF] bg-white"></span>
+<img alt="Meisya Ramadhani full-body portrait" class="h-[420px] w-[270px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7UC1-IRcEg91v0rS-JDVHr37s3G_dniOyn-m1zuMwo-ZMlDVmOF9ejcqIHI0uo-eqb4OAz075bpqlmAm8gNGyME_ZmBYTsVS_HaAzty9XMYSjNubts6KRrhS95NDRHr3xOIppSkwVMlCAeZqHn_H52qpTHtWJvSmXpdyLbDGUMrGdzAFiBDcwO7ALpxyJu8uY5ol5TIjz-sr_MD29rp6vGC1HDT0af5ppEP0ERw4g6yChgLXyaK6G">
+</div>
+<p class="font-caveat mt-3 text-xl font-bold text-[#111111]">
+            Bangkinang Kota, Riau 📍
+          </p>
+</div>
+<!-- Column 2: Hello & Education -->
+<div class="flex flex-col justify-between">
+<div>
+<h2 class="font-archivo-wide text-5xl leading-none text-[#111111] sm:text-6xl">
+              HELLO
+            </h2>
+<p class="mt-4 text-base font-bold leading-relaxed text-[#111111]">
+              Hi, I'm Meisya Ramadhani — a graduate of SMA Negeri Plus Provinsi Riau with a strong passion for robotics, digital media production, and student leadership.
+            </p>
+<p class="mt-3 text-sm leading-relaxed text-[#111111]/75">
+              Experienced in leading cross-functional student teams (8–10 members), building and programming autonomous line-tracking robots, producing institutional promotional videos, and championing school-wide literacy initiatives. Driven to contribute dedication, continuous learning, and impactful execution in technical and corporate environments such as PT PLN (Persero).
+            </p>
+</div>
+<!-- Education Block -->
+<div class="mt-8">
+<h3 class="font-archivo-wide border-b-2 border-[#111111] pb-1.5 text-xl text-[#111111]">
+              EDUCATION
+            </h3>
+<div class="mt-3 space-y-1">
+<p class="text-sm font-bold text-[#111111]">SMA Negeri Plus Provinsi Riau</p>
+<p class="text-xs font-medium text-[#111111]/80">
+                IPA Murni (Natural Sciences) · Final Score: <span class="font-bold text-[#E8392B]">90/100</span>
+</p>
+<p class="font-space-mono text-[11px] text-[#111111]/65">
+                2023 – 2026 · Pekanbaru, Riau
+              </p>
+</div>
+</div>
+</div>
+<!-- Column 3: Skills & Experience -->
+<div>
+<!-- Skills 4x2 Grid -->
+<div>
+<h3 class="font-archivo-wide mb-3 text-xl text-[#111111]">SKILLS</h3>
+<div class="grid grid-cols-4 gap-2.5 w-fit"><div class="flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[#00599C] shadow-sm transition-transform hover:scale-105 p-2" title="C++"><svg class="h-6 w-6" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M116.5 76.7L66.7 105.5C65 106.5 63 106.5 61.3 105.5L11.5 76.7C9.8 75.7 8.8 74 8.8 72V14.4C8.8 12.4 9.8 10.7 11.5 9.7L61.3 -19.1C63 -20.1 65 -20.1 66.7 -19.1L116.5 9.7C118.2 10.7 119.2 12.4 119.2 14.4V72C119.2 74 118.2 75.7 116.5 76.7Z" fill="#00599C"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M64 16.5L105.1 40.2V87.8L64 111.5L22.9 87.8V40.2L64 16.5ZM64 26.2L31.3 45.1V82.9L64 101.8L96.7 82.9V45.1L64 26.2Z" fill="#659AD2"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M64 35.8L39.7 49.8V78.2L64 92.2L88.3 78.2V49.8L64 35.8Z" fill="white"></path><path d="M68.5 64C68.5 54.3 61.3 46.5 51.5 46.5C41.8 46.5 34 54.3 34 64C34 73.7 41.8 81.5 51.5 81.5C59.2 81.5 65.7 76.5 67.8 69.5H58.5C57 72.8 54.5 74.5 51.5 74.5C45.7 74.5 41 69.8 41 64C41 58.2 45.7 53.5 51.5 53.5C54.8 53.5 57 55.2 58.5 58.5H67.8C65.8 51.5 59.2 46.5 68.5 64Z" fill="#00599C"></path><path d="M77 60H81V56H84V60H88V63H84V67H81V63H77V60ZM93 60H97V56H100V60H104V63H100V67H97V63H93V60Z" fill="#00599C"></path></svg></div><div class="flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[#1E293B] shadow-sm transition-transform hover:scale-105 p-2" title="Python"><svg class="h-6 w-6" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M63.5 12C41.2 12 42.6 21.6 42.6 21.6L42.7 31.6H64.4V34.7H33.8C22.6 34.7 13 41.3 13 63.5C13 85.7 20.2 84.7 20.2 84.7H29.1V72.2C29.1 57.5 41.3 58 41.3 58H62.9C75.2 58 75.3 46.2 75.3 46.2V24.5C75.3 12.8 63.5 12 63.5 12ZM52.4 20.3C55.4 20.3 57.8 22.7 57.8 25.7C57.8 28.7 55.4 31.1 52.4 31.1C49.4 31.1 47 28.7 47 25.7C47 22.7 49.4 20.3 52.4 20.3Z" fill="#387EB8"></path><path d="M64.5 116C86.8 116 85.4 106.4 85.4 106.4L85.3 96.4H63.6V93.3H94.2C105.4 93.3 115 86.7 115 64.5C115 42.3 107.8 43.3 107.8 43.3H98.9V55.8C98.9 70.5 86.7 70 86.7 70H65.1C52.8 70 52.7 81.8 52.7 81.8V103.5C52.7 115.2 64.5 116 64.5 116ZM75.6 107.7C72.6 107.7 70.2 105.3 70.2 102.3C70.2 99.3 72.6 96.9 75.6 96.9C78.6 96.9 81 99.3 81 102.3C81 105.3 78.6 107.7 75.6 107.7Z" fill="#FFE052"></path></svg></div><div class="flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[#F7DF1E] shadow-sm transition-transform hover:scale-105 p-2" title="JavaScript"><svg class="h-6 w-6" viewBox="0 0 630 630" xmlns="http://www.w3.org/2000/svg"><path d="M423.2 492.2c12.7 20.7 29.2 35.9 58.6 35.9 24.5 0 40.2-12.3 40.2-29.2 0-20.3-16.1-27.5-43.1-39.3l-14.8-6.3c-42.7-18.2-71.1-41-71.1-89.2 0-44.4 33.8-78.2 86.7-78.2 37.7 0 64.7 13.1 83.3 45.7l-33.8 21.6c-10.2-18.2-23.7-25.8-49.5-25.8-22.4 0-36.4 11.4-36.4 26.2 0 18.2 11.4 25.4 37.7 36.8l14.8 6.3c50.3 21.6 77.8 43.6 77.8 92.6 0 52.9-41.5 82.5-94.3 82.5-52.9 0-86.7-27.1-102.4-59.6l36.6-20.3zM232 496.1c8.9 15.6 16.9 28.8 36 28.8 18.6 0 30.5-7.6 30.5-36.8V289.4h48.2v199.3c0 53.7-31.3 78.7-77.4 78.7-41.9 0-66-22-77.8-51.6l40.5-19.7z" fill="#000000"></path></svg></div><div class="flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[#1E1E1E] shadow-sm transition-transform hover:scale-105 p-2" title="Figma"><svg class="h-6 w-6" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"></path><path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"></path><path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"></path><path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"></path><path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"></path></svg></div><div class="flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[#EA3E23] shadow-sm transition-transform hover:scale-105 p-2" title="Microsoft 365"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 2.5L5 6V18L13.5 21.5L20 18.5V5.5L13.5 2.5Z" fill="#EA3E23"></path><path d="M13.5 2.5L20 5.5V18.5L13.5 21.5V2.5Z" fill="#F35325" opacity="0.9"></path><path d="M8 7.5H12C13.1 7.5 14 8.4 14 9.5V14.5C14 15.6 13.1 16.5 12 16.5H8V7.5ZM9.5 9V15H11.8C12.1 15 12.5 14.7 12.5 14.3V9.7C12.5 9.3 12.1 9 11.8 9H9.5Z" fill="white"></path></svg></div><div class="flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[#00005B] shadow-sm transition-transform hover:scale-105 p-2" title="Adobe After Effects"><svg class="h-6 w-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="20" fill="#00005B"></rect><text x="16" y="69" fill="#9999FF" font-family="sans-serif" font-size="46" font-weight="900" letter-spacing="-2">Ae</text></svg></div><div class="flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[#D83B01] shadow-sm transition-transform hover:scale-105 p-2" title="Microsoft Office"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 2L4 5.5V18.5L13.5 22L20 19V5L13.5 2Z" fill="#EA3E23"></path><path d="M13.5 2V22L20 19V5L13.5 2Z" fill="#F35325"></path><path d="M7.5 7.5H11.5C12.9 7.5 14 8.6 14 10C14 11.4 12.9 12.5 11.5 12.5H9.5V16.5H7.5V7.5ZM9.5 9.2V10.8H11.5C11.9 10.8 12.2 10.4 12.2 10C12.2 9.6 11.9 9.2 11.5 9.2H9.5Z" fill="white"></path></svg></div><div class="flex h-[46px] w-[46px] items-center justify-center rounded-[10px] bg-[#00979D] shadow-sm transition-transform hover:scale-105 p-2" title="Arduino / Arduino IDE"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 6C13.88 6 12.56 8.04 12 9.07C11.44 8.04 10.12 6 7.5 6C3.91 6 1 8.69 1 12C1 15.31 3.91 18 7.5 18C10.12 18 11.44 15.96 12 14.93C12.56 15.96 13.88 18 16.5 18C20.09 18 23 15.31 23 12C23 8.69 20.09 6 16.5 6ZM7.5 15.8C5.12 15.8 3.2 14.1 3.2 12C3.2 9.9 5.12 8.2 7.5 8.2C9.52 8.2 10.66 10.02 11.15 11.02C11.35 11.44 11.35 12.56 11.15 12.98C10.66 13.98 9.52 15.8 7.5 15.8ZM16.5 15.8C14.48 15.8 13.34 13.98 12.85 12.98C12.65 12.56 12.65 11.44 12.85 11.02C13.34 10.02 14.48 8.2 16.5 8.2C18.88 8.2 20.8 9.9 20.8 12C20.8 14.1 18.88 15.8 16.5 15.8ZM5.5 12.6V11.4H9.5V12.6H5.5ZM14.5 12.6V11.4H16V9.9H17.2V11.4H18.7V12.6H17.2V14.1H16V12.6H14.5Z" fill="white"></path></svg></div></div>
+</div>
+<!-- Experience Timeline -->
+<div class="mt-7">
+<h3 class="font-archivo-wide mb-2 text-xl text-[#111111]">EXPERIENCE</h3>
+<div class="space-y-2.5 text-xs">
+<div class="border-t-[1.5px] border-[#111111] pt-2">
+<span class="font-space-mono text-[10px] font-bold text-[#E8392B]">2025–2026</span>
+<p class="font-bold text-[#111111]">Ketua Robotik Club — Organisasi Robotik SMAN Plus Provinsi Riau</p>
+<p class="text-[#111111]/70">Led 10 members, C++/Arduino, Juara 2 PCR</p>
+</div>
+<div class="border-t-[1.5px] border-[#111111] pt-2">
+<span class="font-space-mono text-[10px] font-bold text-[#E8392B]">2025–2026</span>
+<p class="font-bold text-[#111111]">Ketua Panitia Video Profil Perpustakaan — SMAN Plus Provinsi Riau</p>
+<p class="text-[#111111]/70">Led 8 members, After Effects &amp; CapCut</p>
+</div>
+<div class="border-t-[1.5px] border-[#111111] pt-2">
+<span class="font-space-mono text-[10px] font-bold text-[#E8392B]">2024–2025</span>
+<p class="font-bold text-[#111111]">Ketua Seksi Bidang TIK — OSIS SMAN Plus Provinsi Riau</p>
+<p class="text-[#111111]/70">Led 8 members, digital publication &amp; school tech</p>
+</div>
+<div class="border-t-[1.5px] border-[#111111] pt-2">
+<span class="font-space-mono text-[10px] font-bold text-[#E8392B]">2024–2025</span>
+<p class="font-bold text-[#111111]">Ketua Umum — Organisasi Bahana (Buah Pena Anak Plus)</p>
+<p class="text-[#111111]/70">Led 8 members, literacy &amp; writing programs</p>
+</div>
+<div class="border-t-[1.5px] border-[#111111] pt-2">
+<span class="font-space-mono text-[10px] font-bold text-[#E8392B]">2024–2025</span>
+<p class="font-bold text-[#111111]">Ketua Bidang TIK — Panitia Penerimaan Murid Baru (PPDB)</p>
+<p class="text-[#111111]/70">Led 10 members</p>
+</div>
+<div class="border-t-[1.5px] border-[#111111] pt-2">
+<span class="font-space-mono text-[10px] font-bold text-[#E8392B]">2024–2025</span>
+<p class="font-bold text-[#111111]">Duta Literasi — SMAN Plus Provinsi Riau</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: MarqueeDividerBand -->
+<section class="relative my-16" data-purpose="torn-paper-marquee-divider">
+<!-- Centered Cutout Portrait Silhouette rising above top edge -->
+<div class="pointer-events-none relative z-20 mx-auto flex justify-center -mb-24 sm:-mb-28">
+<img alt="Meisya Ramadhani cutout portrait" class="sticker-outline-red h-48 w-40 object-cover sm:h-60 sm:w-48" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7UC1-IRcEg91v0rS-JDVHr37s3G_dniOyn-m1zuMwo-ZMlDVmOF9ejcqIHI0uo-eqb4OAz075bpqlmAm8gNGyME_ZmBYTsVS_HaAzty9XMYSjNubts6KRrhS95NDRHr3xOIppSkwVMlCAeZqHn_H52qpTHtWJvSmXpdyLbDGUMrGdzAFiBDcwO7ALpxyJu8uY5ol5TIjz-sr_MD29rp6vGC1HDT0af5ppEP0ERw4g6yChgLXyaK6G">
+</div>
+<!-- Black Torn-Paper Marquee Band -->
+<div class="torn-edge-both relative z-10 overflow-hidden bg-[#111111] py-14 sm:py-16">
+<div class="marquee-track font-archivo-wide text-3xl tracking-tight sm:text-5xl">
+<div class="flex items-center gap-6 pr-6">
+<span class="text-[#F2F1ED]">ROBOTICS CREATOR ✦</span>
+<span class="text-outline-white">STUDENT LEADER ❖</span>
+<span class="text-[#F2F1ED]">DIGITAL MEDIA ✦</span>
+<span class="text-outline-white">LITERACY AMBASSADOR ❖</span>
+</div>
+<div aria-hidden="true" class="flex items-center gap-6 pr-6">
+<span class="text-[#F2F1ED]">ROBOTICS CREATOR ✦</span>
+<span class="text-outline-white">STUDENT LEADER ❖</span>
+<span class="text-[#F2F1ED]">DIGITAL MEDIA ✦</span>
+<span class="text-outline-white">LITERACY AMBASSADOR ❖</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: MarqueeDividerBand -->
+<!-- BEGIN: FeaturedProjects -->
+<section class="mx-auto max-w-6xl px-4 py-12 sm:px-6" data-purpose="featured-projects-scrapbook" id="projects">
+<!-- Section Header -->
+<div class="mb-10 flex flex-wrap items-baseline gap-4">
+<h2 class="font-archivo-wide text-4xl text-[#111111] sm:text-5xl">THE WORK</h2>
+<span class="font-caveat text-2xl font-bold text-[#E8392B]">built, led &amp; filmed ✦</span>
+</div>
+<!-- 2-Column Staggered Scrapbook Polaroid Cards -->
+<div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
+<!-- Project 1 -->
+<article class="relative bg-white p-6 pt-8 shadow-md border border-[#111111]/15 -rotate-[1.8deg] transition-transform hover:rotate-0">
+<div class="masking-tape absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 rotate-1"></div>
+<div class="mb-3 flex items-center justify-between gap-2">
+<span class="rounded-full bg-[#E8392B] px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+              Robotics
+            </span>
+<span class="font-space-mono text-[11px] font-bold text-[#111111]/70">
+              2025–2026 · Ketua Robotik Club
+            </span>
+</div>
+<h3 class="font-archivo-wide text-xl text-[#111111]">
+            Autonomous Line Tracking Robot
+          </h3>
+<p class="mt-2 text-sm leading-relaxed text-[#111111]/75">
+            Designed, assembled, and programmed an autonomous line-tracking robot with a 10-member team, securing 2nd Place (Juara 2) at Politeknik Caltex Riau.
+          </p>
+<div class="font-space-mono mt-4 flex flex-wrap gap-2 text-[11px] font-bold">
+<span class="border border-[#111111] px-2 py-0.5">C++</span>
+<span class="border border-[#111111] px-2 py-0.5">Arduino IDE</span>
+</div>
+</article>
+<!-- Project 2 -->
+<article class="relative bg-white p-6 pt-8 shadow-md border border-[#111111]/15 rotate-[1.5deg] md:mt-8 transition-transform hover:rotate-0">
+<div class="masking-tape absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-2"></div>
+<div class="mb-3 flex items-center justify-between gap-2">
+<span class="rounded-full bg-[#E8392B] px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+              Digital Media
+            </span>
+<span class="font-space-mono text-[11px] font-bold text-[#111111]/70">
+              2025–2026 · Ketua Panitia
+            </span>
+</div>
+<h3 class="font-archivo-wide text-xl text-[#111111]">
+            School Library Profile Video
+          </h3>
+<p class="mt-2 text-sm leading-relaxed text-[#111111]/75">
+            Directed an 8-member production crew from storyboarding to post-production to showcase the school library's facilities and literacy culture.
+          </p>
+<div class="font-space-mono mt-4 flex flex-wrap gap-2 text-[11px] font-bold">
+<span class="border border-[#111111] px-2 py-0.5">After Effects</span>
+<span class="border border-[#111111] px-2 py-0.5">CapCut</span>
+</div>
+</article>
+<!-- Project 3 -->
+<article class="relative bg-white p-6 pt-8 shadow-md border border-[#111111]/15 rotate-[1.2deg] transition-transform hover:rotate-0">
+<div class="masking-tape absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 rotate-2"></div>
+<div class="mb-3 flex items-center justify-between gap-2">
+<span class="rounded-full bg-[#E8392B] px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+              Leadership &amp; Tech
+            </span>
+<span class="font-space-mono text-[11px] font-bold text-[#111111]/70">
+              2024–2025 · Ketua Bidang TIK OSIS &amp; PPDB
+            </span>
+</div>
+<h3 class="font-archivo-wide text-xl text-[#111111]">
+            PPDB &amp; School Digital Information Hub
+          </h3>
+<p class="mt-2 text-sm leading-relaxed text-[#111111]/75">
+            Coordinated digital publications, student admission information systems, and cross-division tech support for school-wide events.
+          </p>
+<div class="font-space-mono mt-4 flex flex-wrap gap-2 text-[11px] font-bold">
+<span class="border border-[#111111] px-2 py-0.5">Digital Publication</span>
+<span class="border border-[#111111] px-2 py-0.5">Coordination</span>
+</div>
+</article>
+<!-- Project 4 -->
+<article class="relative bg-white p-6 pt-8 shadow-md border border-[#111111]/15 -rotate-[1.5deg] md:mt-8 transition-transform hover:rotate-0">
+<div class="masking-tape absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-1"></div>
+<div class="mb-3 flex items-center justify-between gap-2">
+<span class="rounded-full bg-[#E8392B] px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+              Literacy
+            </span>
+<span class="font-space-mono text-[11px] font-bold text-[#111111]/70">
+              2024–2025 · Ketua Umum &amp; Duta Literasi
+            </span>
+</div>
+<h3 class="font-archivo-wide text-xl text-[#111111]">
+            Bahana Literacy &amp; Publishing Movement
+          </h3>
+<p class="mt-2 text-sm leading-relaxed text-[#111111]/75">
+            Led Organisasi Bahana (Buah Pena Anak Plus) to cultivate student writing, editorial curation, and school-wide literacy campaigns.
+          </p>
+<div class="font-space-mono mt-4 flex flex-wrap gap-2 text-[11px] font-bold">
+<span class="border border-[#111111] px-2 py-0.5">Writing</span>
+<span class="border border-[#111111] px-2 py-0.5">Publishing</span>
+</div>
+</article>
+</div>
+</section>
+<!-- END: FeaturedProjects -->
+<!-- BEGIN: CoreCompetencies -->
+<section class="mx-auto max-w-6xl px-4 py-14 sm:px-6" data-purpose="core-competencies" id="competencies">
+<div class="mb-8 flex flex-wrap items-baseline gap-4">
+<h2 class="font-archivo-wide text-4xl text-[#111111] sm:text-5xl">WHAT I BRING</h2>
+<span class="font-caveat text-2xl font-bold text-[#E8392B]">four pillars of contribution ✦</span>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+<div class="brutalist-card-shadow border-2 border-[#111111] bg-white p-5 -rotate-1">
+<span class="font-space-mono text-xs font-bold text-[#E8392B]">01.</span>
+<h3 class="font-archivo-wide mt-2 text-lg leading-tight text-[#111111]">
+            ROBOTICS &amp; PROGRAMMING
+          </h3>
+<p class="font-space-mono mt-3 text-xs text-[#111111]/75">
+            C++, Arduino IDE, Python, HTML/JS
+          </p>
+</div>
+<div class="brutalist-card-shadow border-2 border-[#111111] bg-white p-5 rotate-1">
+<span class="font-space-mono text-xs font-bold text-[#E8392B]">02.</span>
+<h3 class="font-archivo-wide mt-2 text-lg leading-tight text-[#111111]">
+            MULTIMEDIA PRODUCTION
+          </h3>
+<p class="font-space-mono mt-3 text-xs text-[#111111]/75">
+            After Effects, CapCut, Figma, Canva
+          </p>
+</div>
+<div class="brutalist-card-shadow border-2 border-[#111111] bg-white p-5 -rotate-1">
+<span class="font-space-mono text-xs font-bold text-[#E8392B]">03.</span>
+<h3 class="font-archivo-wide mt-2 text-lg leading-tight text-[#111111]">
+            TEAM &amp; PROJECT LEADERSHIP
+          </h3>
+<p class="font-space-mono mt-3 text-xs text-[#111111]/75">
+            Scheduling, Task Delegation, Evaluation
+          </p>
+</div>
+<div class="brutalist-card-shadow border-2 border-[#111111] bg-white p-5 rotate-1">
+<span class="font-space-mono text-xs font-bold text-[#E8392B]">04.</span>
+<h3 class="font-archivo-wide mt-2 text-lg leading-tight text-[#111111]">
+            COMMUNICATION &amp; LITERACY
+          </h3>
+<p class="font-space-mono mt-3 text-xs text-[#111111]/75">
+            Technical Writing, Public Speaking, MS Office
+          </p>
+</div>
+</div>
+</section>
+<!-- END: CoreCompetencies -->
+<!-- BEGIN: AchievementsSection -->
+<section class="mx-auto max-w-6xl px-4 py-12 sm:px-6" data-purpose="achievements-ledger" id="achievements">
+<div class="mb-8 flex flex-wrap items-baseline gap-4">
+<h2 class="font-archivo-wide text-4xl text-[#111111] sm:text-5xl">ACHIEVEMENTS</h2>
+<span class="font-caveat text-2xl font-bold text-[#E8392B]">milestones &amp; honors ✦</span>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<div class="border-t-2 border-[#111111] pt-4">
+<span class="font-space-mono inline-block bg-[#111111] px-2 py-0.5 text-xs font-bold text-[#F2F1ED]">
+            [2026]
+          </span>
+<h3 class="mt-2 text-base font-bold text-[#111111]">
+            Juara 2 — Line Tracking Robot Competition
+          </h3>
+<p class="text-sm text-[#111111]/70">Politeknik Caltex Riau</p>
+</div>
+<div class="border-t-2 border-[#111111] pt-4">
+<span class="font-space-mono inline-block bg-[#111111] px-2 py-0.5 text-xs font-bold text-[#F2F1ED]">
+            [2025]
+          </span>
+<h3 class="mt-2 text-base font-bold text-[#111111]">
+            Juara 2 — Lomba Esai Otomasi
+          </h3>
+<p class="text-sm text-[#111111]/70">Politeknik Caltex Riau</p>
+</div>
+<div class="border-t-2 border-[#111111] pt-4">
+<span class="font-space-mono inline-block bg-[#111111] px-2 py-0.5 text-xs font-bold text-[#F2F1ED]">
+            [2024]
+          </span>
+<h3 class="mt-2 text-base font-bold text-[#111111]">
+            Delegasi Provinsi Riau — Jambore Budaya Bahasa Nasional
+          </h3>
+<p class="text-sm text-[#111111]/70">Malang, Jawa Timur</p>
+</div>
+<div class="border-t-2 border-[#111111] pt-4">
+<span class="font-space-mono inline-block bg-[#111111] px-2 py-0.5 text-xs font-bold text-[#F2F1ED]">
+            [2024–2025]
+          </span>
+<h3 class="mt-2 text-base font-bold text-[#111111]">
+            Duta Literasi SMA Negeri Plus Provinsi Riau
+          </h3>
+<p class="text-sm text-[#111111]/70">Pekanbaru, Riau</p>
+</div>
+</div>
+</section>
+<!-- END: AchievementsSection -->
+</main>
+<!-- BEGIN: ContactFooter -->
+<footer class="torn-edge-top mt-12 bg-[#111111] px-4 pt-16 pb-8 text-center text-[#F2F1ED] sm:px-6" data-purpose="contact-footer-band" id="contact">
+<div class="mx-auto max-w-4xl">
+<h2 class="font-archivo-wide text-4xl sm:text-6xl">
+        LET'S CONNECT <span class="text-[#E8392B]">✦</span>
+</h2>
+<p class="font-caveat mt-2 text-2xl font-bold text-[#E8392B]">
+        open for opportunities, collaborations, or a quick hello :)
+      </p>
+<!-- Action Buttons -->
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+<a class="font-space-mono brutalist-btn-shadow bg-[#F2F1ED] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#111111]" href="mailto:meisya.ramadhani@example.com">
+          EMAIL ME ↗
+        </a>
+<a class="font-space-mono brutalist-btn-shadow bg-[#F2F1ED] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#111111]" href="https://wa.me/6281234567890" rel="noopener noreferrer" target="_blank">
+          WHATSAPP ↗
+        </a>
+<a class="font-space-mono brutalist-btn-shadow bg-[#F2F1ED] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#111111]" href="#about">
+          DOWNLOAD CV ↗
+        </a>
+</div>
+<!-- Bottom Footer Bar -->
+<div class="font-space-mono mt-14 flex flex-col items-center justify-between gap-2 border-t border-[#F2F1ED]/20 pt-6 text-[10px] uppercase tracking-widest text-[#F2F1ED]/70 sm:flex-row">
+<span>© 2026 MEISYA RAMADHANI · BANGKINANG KOTA, RIAU</span>
+<span>ROBOTICS · DIGITAL MEDIA · LEADERSHIP · LITERACY</span>
+</div>
+</div>
+</footer>
+<!-- END: ContactFooter -->
+
+
+</body></html>

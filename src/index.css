@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+:root {
+  --accent: #E8392B;
+  --select-blue: #2B7FFF;
+  --paper: #F2F1ED;
+  --ink: #111111;
+  --ink-soft: rgba(17, 17, 17, 0.68);
+  --grid: rgba(17, 17, 17, 0.065);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'Archivo', sans-serif;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 26px 26px;
+  overflow-x: hidden;
+}
+
+.paper-grain {
+  background-image:
+    radial-gradient(rgba(17, 17, 17, 0.04) 1px, transparent 0),
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 14px 14px, 26px 26px, 26px 26px;
+}
+
+/* Typography helpers */
+.font-archivo-wide {
+  font-family: 'Archivo', sans-serif;
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.font-caveat {
+  font-family: 'Caveat', cursive;
+}
+
+.font-space-mono {
+  font-family: 'Space Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-outline-white {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--paper);
+}
+
+/* Torn Paper Edges */
+.torn-edge-both {
+  clip-path: polygon(
+    0% 10px, 3% 2px, 6% 12px, 9% 4px, 13% 11px, 16% 3px, 20% 13px, 24% 5px,
+    28% 12px, 32% 2px, 36% 11px, 40% 4px, 44% 13px, 48% 3px, 52% 11px, 56% 5px,
+    60% 12px, 64% 3px, 68% 11px, 72% 4px, 76% 13px, 80% 2px, 84% 12px, 88% 4px,
+    92% 11px, 96% 3px, 100% 10px,
+    100% calc(100% - 10px), 97% calc(100% - 3px), 94% calc(100% - 12px),
+    90% calc(100% - 4px), 86% calc(100% - 11px), 82% calc(100% - 3px),
+    78% calc(100% - 13px), 74% calc(100% - 5px), 70% calc(100% - 12px),
+    66% calc(100% - 2px), 62% calc(100% - 11px), 58% calc(100% - 4px),
+    54% calc(100% - 13px), 50% calc(100% - 3px), 46% calc(100% - 11px),
+    42% calc(100% - 5px), 38% calc(100% - 12px), 34% calc(100% - 3px),
+    30% calc(100% - 11px), 26% calc(100% - 4px), 22% calc(100% - 13px),
+    18% calc(100% - 2px), 14% calc(100% - 12px), 10% calc(100% - 4px),
+    6% calc(100% - 11px), 2% calc(100% - 3px), 0% calc(100% - 10px)
+  );
+}
+
+.torn-edge-top {
+  clip-path: polygon(
+    0% 12px, 3% 3px, 7% 13px, 11% 4px, 15% 11px, 19% 2px, 23% 12px, 27% 5px,
+    31% 13px, 35% 3px, 39% 11px, 43% 4px, 47% 12px, 51% 2px, 55% 11px, 59% 5px,
+    63% 13px, 67% 3px, 71% 12px, 75% 4px, 79% 11px, 83% 2px, 87% 13px, 91% 4px,
+    95% 11px, 98% 3px, 100% 10px,
+    100% 100%, 0% 100%
+  );
+}
+
+/* Marquee Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 24s linear infinite;
+}
+
+.marquee-band:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Stickers, Masking Tape & Hard Offset Shadows */
+.sticker-outline-white {
+  filter: drop-shadow(0 0 0 #ffffff) drop-shadow(3px 3px 0 rgba(17, 17, 17, 0.25));
+  border: 4px solid #ffffff;
+}
+
+.sticker-outline-red {
+  border: 5px solid var(--accent);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.masking-tape {
+  background: rgba(226, 222, 212, 0.85);
+  border-left: 1px dashed rgba(17, 17, 17, 0.18);
+  border-right: 1px dashed rgba(17, 17, 17, 0.18);
+  box-shadow: 0 1px 3px rgba(17, 17, 17, 0.12);
+}
+
+.brutalist-card-shadow {
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brutalist-card-shadow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.brutalist-chip-shadow {
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brutalist-chip-shadow:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.brutalist-chip-shadow:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.brutalist-btn-shadow {
+  box-shadow: 4px 4px 0 var(--accent);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brutalist-btn-shadow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+
+.brutalist-btn-shadow:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--accent);
+}
+
+/* Print Styles for CV Sheet */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #cv-printable-sheet,
+  #cv-printable-sheet * {
+    visibility: visible;
+  }
+  #cv-printable-sheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
